@@ -25,7 +25,7 @@ namespace AngularProjectAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
         {
-            return await _context.Comments.ToListAsync();
+            return await _context.Comments.Include(u => u.User).ToListAsync();
         }
 
         // GET: api/Comment/5
